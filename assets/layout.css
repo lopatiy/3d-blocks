@@ -1,0 +1,49 @@
+HTML, BODY {
+    height: 100%;
+}
+
+:root {
+    --w: 5em;
+    --h: 5em;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}
+
+.scene {
+    perspective: 1000px;
+    perspective-origin: center -5em;
+}
+
+.containers{
+    transform-style: preserve-3d;
+    transform: rotateY(30deg);
+}
+.side,.container{
+    width: var(--w);
+    height: var(--h);
+    transform-style: preserve-3d;
+}
+
+.container {
+    display: inline-block;
+    float: left;
+    box-shadow: 0 0 15px white;
+}
+
+.side {
+    border: 1px solid lightgray;
+    background: white;
+    position: absolute;
+}
+
+.side:nth-child(1){transform: translateZ(calc(var(--w) / -2));}
+.side:nth-child(2){transform: translateZ(calc(var(--w) / 2));}
+.side:nth-child(3){transform: translateX(calc(var(--w) / 2)) rotateY(90deg);}
+.side:nth-child(4){transform: translateX(calc(var(--w) / -2)) rotateY(90deg);}
+.side:nth-child(6){transform: translateY(calc(var(--w) / 2)) rotateX(90deg);}
+.side:nth-child(5){transform: translateY(calc(var(--w) / -2)) rotateX(90deg);}
