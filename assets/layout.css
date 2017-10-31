@@ -8,10 +8,12 @@ HTML, BODY {
 }
 
 body {
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: black;
+    box-shadow: inset 0 0 200px 0 rgba(0,0,0,.75);
     overflow: hidden;
 }
 
@@ -32,7 +34,7 @@ body {
 .container {
     display: inline-block;
     position: absolute;
-    left: calc(50% - 2.5em);
+    left: calc(50% - var(--w) / 2);
 }
 
 .side {
@@ -49,29 +51,21 @@ body {
     background: url('./top.png');
 }
 
-.container:nth-child(1) {transform: translateX(-5em);}
-.container:nth-child(2) {transform: translateX(5em);}
-.container:nth-child(3) {transform: translateZ(5em);}
-.container:nth-child(4) {transform: translateZ(-5em)}
-.container:nth-child(5) {transform: translateY(-5em)}
+.container:nth-child(1) {transform: translateX(calc(var(--w) * -1));}
+.container:nth-child(2) {transform: translateX(calc(var(--w) * 1));}
+.container:nth-child(3) {transform: translateZ(calc(var(--w) * 1));}
+.container:nth-child(4) {transform: translateZ(calc(var(--w) * -1))}
+.container:nth-child(5) {transform: translateY(calc(var(--w) * -1))}
 
 /*Sides*/
-/*back*/
-.side:nth-child(1) {transform: translateZ(calc(var(--w) / -2)) rotateY(180deg);}
-/*front*/
-.side:nth-child(2) {transform: translateZ(calc(var(--w) / 2));}
-/*right*/
-.side:nth-child(3) {transform: translateX(calc(var(--w) / 2)) rotateY(90deg);}
-/*left*/
-.side:nth-child(4) {transform: translateX(calc(var(--w) / -2)) rotateY(-90deg);}
-/*top*/
-.side:nth-child(5) {transform: translateY(calc(var(--w) / -2)) rotateX(90deg);}
-/*bottom*/
-.side:nth-child(6) {transform: translateY(calc(var(--w) / 2)) rotateX(90deg);}
+.side:nth-child(1) {transform: translateZ(calc(var(--w) / -2)) rotateY(180deg);} /*back*/
+.side:nth-child(2) {transform: translateZ(calc(var(--w) /  2))                 } /*front*/
+.side:nth-child(3) {transform: translateX(calc(var(--w) /  2)) rotateY( 90deg);} /*right*/
+.side:nth-child(4) {transform: translateX(calc(var(--w) / -2)) rotateY(-90deg);} /*left*/
+.side:nth-child(5) {transform: translateY(calc(var(--w) / -2)) rotateX(90deg) ;} /*top*/
+.side:nth-child(6) {transform: translateY(calc(var(--w) /  2)) rotateX(90deg) ;} /*bottom*/
 
-.containers {
-    animation: 2s rotation infinite linear;
-}
+.containers {animation: 2s rotation infinite linear;}
 
 .side:nth-child(2) {animation: 2s brightness infinite linear;}
 .side:nth-child(4) {animation: 2s brightness infinite linear; animation-delay: 1s;}
