@@ -70,7 +70,9 @@ body {
 .side:nth-child(2) {animation: 2s brightness infinite linear;}
 .side:nth-child(4) {animation: 2s brightness infinite linear; animation-delay: 1s;}
 .container:nth-child(3) .side:nth-child(5){animation: 2s brightness-top infinite linear;}
-.container:nth-child(1) .side:nth-child(5){animation: 2s brightness-top-1 infinite linear; animation-delay: 1s}
+
+.container:nth-child(1) .side:nth-child(5){animation: 2s brightness-top-half infinite linear;}
+.container:nth-child(2) .side:nth-child(5){animation: 2s brightness-top-half-reverse infinite linear;}
 
 @keyframes rotation {
     0% {transform: rotateY(0deg)}
@@ -87,8 +89,14 @@ body {
     50% {filter: brightness(.3)}
     100% {filter: brightness(.3)}
 }
-@keyframes brightness-top {
+@keyframes brightness-top-half {
     0% {filter: brightness(1)}
-    50% {filter: brightness(.3)}
+    70% {filter: brightness(1)}
     100% {filter: brightness(.3)}
+}
+@keyframes brightness-top-half-reverse {
+    0% {filter: brightness(.3)}
+    40% {filter: brightness(.3)}
+    50% {filter: brightness(1)}
+    100% {filter: brightness(1)}
 }
